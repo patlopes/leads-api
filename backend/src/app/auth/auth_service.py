@@ -14,12 +14,12 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
     encoded_jwt = jwt.encode(to_encode, config.SECRET_KEY, algorithm="HS256")
     return encoded_jwt
 
-def verify_token(token: str, credentials_exception):
+def verify_token(token: str):
     try:
         payload = jwt.decode(token, config.SECRET_KEY, algorithms=["HS256"])
         email: str = payload.get("sub")
         if email is None:
-            raise credentials_exception
-    except jwt.JWTError:
-        raise credentials_exception
-    return email
+            return None
+        return email
+    except:
+        return None
