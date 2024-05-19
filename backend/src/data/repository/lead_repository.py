@@ -1,7 +1,6 @@
 from sqlalchemy.orm import Session
-
 from data.model.lead import Lead as LeadModel
-from data.model.schemas import lead as lead_schema
+from interface.schemas import lead_schema 
 
 def get_leads(db: Session):
     return db.query(LeadModel).all()
