@@ -27,3 +27,6 @@ def create_lead(first_name, last_name, email, resumeFile, db) -> lead_schema.Lea
 
 def update_lead(lead_id: str, lead: lead_schema.LeadUpdate, db) -> lead_schema.Lead:
     return lead_repository.update_lead(db, lead_id, lead)
+
+def update_lead_status(lead_id: str, db) -> lead_schema.Lead:
+    return lead_repository.update_lead_status(db, lead_id, "REACHED_OUT")

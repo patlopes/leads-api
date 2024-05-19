@@ -27,3 +27,10 @@ def update_lead(db: Session, lead_id: str, lead: lead_schema.LeadUpdate):
     db.commit()
     db.refresh(db_lead)
     return db_lead
+
+def update_lead_status(db: Session, lead_id: str, status: str):
+    db_lead = db.query(LeadModel).filter(LeadModel.id == lead_id).first()
+    db_lead.status = status
+    db.commit()
+    db.refresh(db_lead)
+    return db_lead

@@ -35,3 +35,7 @@ def create_lead(
 @router.put("/leads/{lead_id}", response_model=lead_schema.Lead)
 def update_lead(lead_id: str, lead: lead_schema.LeadUpdate, db:Session=Depends(get_db)):
     return leads_service.update_lead(lead_id, lead, db)
+
+@router.put("/leads/{lead_id}/status", response_model=lead_schema.Lead)
+def update_lead_status(lead_id: str, db:Session=Depends(get_db)):
+    return leads_service.update_lead_status(lead_id, db)

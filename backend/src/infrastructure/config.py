@@ -13,3 +13,4 @@ class Config(BaseSettings):
     MINIO_ROOT_PASSWORD: str
     MINIO_BUCKET: str
     MINIO_SECURE: bool = False
+    DEFAULT_EMAIL_ADMIN: str
