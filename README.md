@@ -53,13 +53,13 @@ I explain more about each layer in there respective README.md
 
 # How to run
 ## Requirements
-- Docker
-- Docker Compose
+- Docker (https://docs.docker.com/engine/install/)
+- Docker Compose (https://docs.docker.com/compose/install/)
 
 ## Steps
 1. Clone the repository
 2. Create a .env file in the root of the project with the variables similar to the example.env file
-3. For the signed urls to work, you need to add the following line to your /etc/hosts file:
+3. For the signed urls to work, you need to add the following line to your `/etc/hosts` file:
 ```
 127.0.0.1   object-storage
 ```
@@ -68,5 +68,12 @@ This is necessary for the signed urls to work correctly.
 ```
 docker-compose up --build
 ```
+or (it will depend on your docker-compose installation)
+```
+docker compose up --build
+```
 5. The API will be available at http://localhost:8000
 6. The documentation will be available at http://localhost:8000/docs
+
+# Walkthrough video
+[![Watch the video](https://img.youtube.com/vi/mRwM8s7M_08/maxresdefault.jpg)](https://www.youtube.com/watch?v=mRwM8s7M_08)
