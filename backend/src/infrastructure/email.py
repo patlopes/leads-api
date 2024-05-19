@@ -7,5 +7,5 @@ class Email:
         
     def send(self, to, subject, body):
         print(f"Sending email to {to} with subject {subject} and body {body}")
-        time.sleep(1)
+        time.sleep(4)
         print("Email sent!")

@@ -23,14 +23,14 @@ class LeadService:
         lead.resume_url = file_url
         return lead
 
-    def create_lead(self, first_name, last_name, email, resumeFile, db) -> lead_schema.Lead:
+    def create_lead(self, first_name, last_name, email, resumeFile, db, bg_tasks) -> lead_schema.Lead:
         file_extension = resumeFile.filename.split('.')[-1]
         resumeFile.filename = f"{uuid4()}.{file_extension}"
         self.file_client.upload_file(resumeFile)
         lead = lead_repository.create_lead(db, first_name, last_name, email, resumeFile.filename)
 
-        self.email_client.send_welcome_email(email)
-        self.email_client.send_notify_admin_email()
+        bg_tasks.add_task(self.email_client.send_welcome_email, email)
+        bg_tasks.add_task(self.email_client.send_notify_admin_email)
 
         return lead
 
