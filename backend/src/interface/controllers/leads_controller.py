@@ -1,10 +1,11 @@
 from fastapi import APIRouter, HTTPException, Depends, UploadFile, Form, File
 from sqlalchemy.orm import Session
 from interface.schemas import lead_schema 
-import app.leads_service as leads_service
+from app.leads_service import LeadService
 from infrastructure.database import get_db
 
 router = APIRouter()
+leads_service = LeadService()
 
 """
 a better way to manage the DB session would be by using a context manager
