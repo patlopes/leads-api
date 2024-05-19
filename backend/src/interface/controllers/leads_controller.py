@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, UploadFile, Form, File
 from sqlalchemy.orm import Session
 from interface.schemas import lead_schema 
 import app.leads_service as leads_service
@@ -23,8 +23,14 @@ def get_lead_by_id(lead_id: str, db:Session=Depends(get_db)):
     return lead
 
 @router.post("/leads", response_model=lead_schema.Lead)
-def create_lead(lead: lead_schema.LeadCreate, db:Session=Depends(get_db)):
-    return leads_service.create_lead(lead, db)
+def create_lead(
+    first_name: str = Form(...),
+    last_name: str = Form(...),
+    email: str = Form(...),
+    resumeFile: UploadFile = File(...),
+    db:Session=Depends(get_db)
+    ):
+    return leads_service.create_lead(first_name, last_name, email, resumeFile, db)
 
 @router.put("/leads/{lead_id}", response_model=lead_schema.Lead)
 def update_lead(lead_id: str, lead: lead_schema.LeadUpdate, db:Session=Depends(get_db)):

@@ -4,7 +4,6 @@ class LeadCreate(BaseModel):
     first_name: str
     last_name: str
     email: str
-    resume_url: str
 
 class LeadUpdate(BaseModel):
     first_name: str

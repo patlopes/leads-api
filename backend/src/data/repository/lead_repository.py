@@ -8,8 +8,13 @@ def get_leads(db: Session):
 def get_lead_by_id(db: Session, lead_id: str):
     return db.query(LeadModel).filter(LeadModel.id == lead_id).first()
 
-def create_lead(db: Session, lead: lead_schema.LeadCreate):
-    db_lead = LeadModel(**lead.dict())
+def create_lead(db: Session, first_name, last_name: str, email: str, file_name: str):
+    db_lead = LeadModel(
+        first_name=first_name,
+        last_name=last_name,
+        email=email,
+        resume_url=file_name
+    )
     db.add(db_lead)
     db.commit()
     db.refresh(db_lead)

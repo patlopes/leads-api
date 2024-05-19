@@ -44,16 +44,10 @@ services:
     ports:
       - '9000:9000'
       - '9001:9001'
-    networks:
-      - minionetwork
     volumes:
       - 'minio_data:/data'
     env_file:
       - .env
-
-networks:
-  minionetwork:
-    driver: bridge
 
 volumes:
   minio_data:
