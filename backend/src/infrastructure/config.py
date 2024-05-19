@@ -14,3 +14,4 @@ class Config(BaseSettings):
     MINIO_BUCKET: str
     MINIO_SECURE: bool = False
     DEFAULT_EMAIL_ADMIN: str
+    SECRET_KEY: str = "secret"
