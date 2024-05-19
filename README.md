@@ -10,7 +10,7 @@ Leads are forms that contain the following fields:
 
 # Design
 ## Initial Concept
-<img src="https://github.com/patlopes/leads-api/blob/main/doc/backend-arch.jpg" alt="Design" width="500"/>
+<img src="https://github.com/patlopes/leads-api/blob/main/doc/backend-arch.jpg" alt="Design" width="800"/>
 Before starting the project, I created a design that would guide me in the development of the API.
 The idea was also to create a highly scalable and maintainable code.
 
@@ -22,7 +22,7 @@ In this concept we would have:
 - Celery: responsible for processing the emails
 
 ## Actual Design
-<img src="https://github.com/patlopes/leads-api/blob/main/doc/backend-arch-as-is.jpg" alt="Design" width="500"/>
+<img src="https://github.com/patlopes/leads-api/blob/main/doc/backend-arch-as-is.jpg" alt="Design" width="800"/>
 Given the deadline and the complexity of the project, I decided to simplify the design.
 The final design is composed of:
 - API: responsible for managing the leads and authentication
