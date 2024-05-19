@@ -15,6 +15,7 @@ services:
       - object-storage
     volumes:
       - ./backend/src:/app
+    restart: always
   rabbitmq:
     image: rabbitmq:3-management
     ports:
